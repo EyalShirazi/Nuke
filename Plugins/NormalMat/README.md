@@ -6,14 +6,14 @@ There are to option for input image range:
 * from 0 to 1, the plugin will shift it the range of -1 to 1
 * from -1 to 1, in thise case nothing will be done.
 
-
+The flip check box is just to "fix" so normal that start to band too much. 
 
 <div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/TwoFaceMat/demo/TwoFaceMat%20script01.jpg"/>
+  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/TwoFaceMat/demo/NormalMat%20-%20example02.gif"/>
 </div>
 
 <div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/TwoFaceMat/demo/TwoFaceMat%20example01.gif"/>
+  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/TwoFaceMat/demo/NormalMat%20-%20example01.gif"/>
 </div>
 
 
