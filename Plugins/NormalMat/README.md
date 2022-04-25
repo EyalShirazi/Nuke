@@ -1,6 +1,7 @@
 NormalMat is a normal map shader that gives you the ability to add details to your geo using an image. 
 
 Use output channel if you want to output the normal from the scanline renderer, the build in option inside the scanline render doesn't work with this tool.
+Other than that the tool work with the rest of the native lighs for the scanline renderer including the enviroment light. 
 
 There are to option for input image range:
 * from 0 to 1, the plugin will shift it the range of -1 to 1
