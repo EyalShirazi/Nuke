@@ -9,11 +9,11 @@ There are to option for input image range:
 The flip check box is just to "fix" so normal that start to band too much. 
 
 <div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/TwoFaceMat/demo/NormalMat%20-%20example02.gif"/>
+  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/NormalMat/demo/NormalMat%20-%20example02.gif"/>
 </div>
 
 <div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/TwoFaceMat/demo/NormalMat%20-%20example01.gif"/>
+  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/NormalMat/demo/NormalMat%20-%20example01.gif"/>
 </div>
 
 
