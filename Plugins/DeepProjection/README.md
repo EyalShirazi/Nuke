@@ -1,7 +1,7 @@
 Deep projections will project a texture on each deep sample, with relationship to the deep's world position.
 
 <div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/Dithering/demo/deep_comapre.gif"/>
+  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/DeepProjection/demo/deep_comapre.gif"/>
 </div>
 
 1st input is the deep itself.
@@ -14,7 +14,7 @@ if it fails to find either it will produce a default camera.
 3 merge operation are provided to blend with the deep itself.
 
 <div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/Dithering/demo/deep_merge.gif"/>
+  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/DeepProjection/demo/deep_merge.gif"/>
 </div>
 
 
@@ -24,7 +24,7 @@ Hopefully in the future it will be handled automatically.
 There are a few edge handling (reflection will be added in future version)
 
 <div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/Dithering/demo/deep_edge.gif"/>
+  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/DeepProjection/demo/deep_edge.gif"/>
 </div>
 
 Blur will handle any pre-filtering of the texture (future version will have an adaptive mode).
