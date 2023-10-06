@@ -1,8 +1,6 @@
 Deep projections will project a texture on each deep sample, with relationship to the deep's world position.
 
-<div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/DeepProjection/demo/deep_comapre.gif"/>
-</div>
+<img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/DeepProjection/demo/deep_comapre.gif"/>
 
 1st input is the deep itself.
 2nd input is the texture to project.
