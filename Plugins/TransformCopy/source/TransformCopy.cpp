@@ -153,9 +153,7 @@ public:
         SetFlags(f, DD::Image::Knob::STARTLINE);
 
 	Divider(f);
-
     	Transform::knobs(f);
-
 	Divider(f);
 
 	Enumeration_knob(f, &kResizeTypeValue, kResizeTypeList, "resize", "resize type");
@@ -180,7 +178,7 @@ public:
         Text_knob(f, kInfo);
     }
 
-	int knob_changed(DD::Image::Knob* k) override
+    int knob_changed(DD::Image::Knob* k) override
     {
 	if(k == kReference)
 	{
@@ -210,26 +208,26 @@ public:
 	return 0;
     }
 
-	const char* input_label(int n, char*) const override
-	{	
-		switch (n) 
-		{
-			case 0: return "image";
-			case 1: return "transform";
-			default: return "";
-		}
-	}
-
-	bool test_input(int input, DD::Image::Op *op) const override
+    const char* input_label(int n, char*) const override
+    {	
+	switch (n) 
 	{
-		if (input==1)
-	        {
-	            return
-	            (dynamic_cast<DD::Image::Transform*>(op) != nullptr) ||
-	            (dynamic_cast<DD::Image::CameraOp*>(op)  != nullptr);
-	        }
-        	return DD::Image::Transform::test_input(input, op);
+		case 0: return "image";
+		case 1: return "transform";
+		default: return "";
 	}
+    }
+
+    bool test_input(int input, DD::Image::Op *op) const override
+    {
+	if (input==1)
+	{
+	    return
+	    (dynamic_cast<DD::Image::Transform*>(op) != nullptr) ||
+	    (dynamic_cast<DD::Image::CameraOp*>(op)  != nullptr);
+	}
+	return DD::Image::Transform::test_input(input, op);
+    }
 
     inline void clean_and_inverse_mat(DD::Image::Matrix4& mat)
     {
