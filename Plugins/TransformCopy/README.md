@@ -1,4 +1,6 @@
+TransfromCopy will apply a transformation from one node to another image.
+It gives independent control over each transformation. 
 
-<div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/TransformCopy/demo/TransformCopy_example01.jpg"/>
-</div>
+<a href="https://youtu.be/viBFhVO5ROQ">To watch the full tutotial</a>
+
+<img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/TransformCopy/demo/TransformCopy_example01.jpg"/>
