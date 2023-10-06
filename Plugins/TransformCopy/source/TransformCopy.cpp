@@ -37,14 +37,10 @@
                 "\n" \
                 "Tip: hold ctrl + click on reference/retime button will set frame number to current frame.\n";
 
-
-void printM33(DD::Image::Matrix4 mat, const char* name);
-void printM44(DD::Image::Matrix4 mat, const char* name);
-
 class TransformCopy final : public DD::Image::Transform
 {
-	ToggleButtonKnob* kReference{nullptr};
-	ToggleButtonKnob* kRetime{nullptr};
+    ToggleButtonKnob* kReference{nullptr};
+    ToggleButtonKnob* kRetime{nullptr};
 
     DD::Image::Knob* kReferenceFrame{nullptr};
     DD::Image::Knob* kRetimeFrame{nullptr};
@@ -63,11 +59,11 @@ class TransformCopy final : public DD::Image::Transform
     DD::Image::FormatPair kOutputFormat;
     DD::Image::Box bboxOut;
 
-	float kReferenceFrameValue{0};
-	float kRetimeFrameValue{0};
+    float kReferenceFrameValue{0};
+    float kRetimeFrameValue{0};
     int kExpandBBox{0};
     int kBBoxMode{0};
-	int kResizeTypeValue{1};
+    int kResizeTypeValue{1};
 
 
 #define BBOX_TYPE_LIST(ENTRY) \
@@ -110,7 +106,7 @@ public:
     TransformCopy(Node* node) 
     : DD::Image::Transform(node)
     {
-		kOutputFormat.format(nullptr);
+	kOutputFormat.format(nullptr);
     }
     
     ~TransformCopy() 
@@ -121,8 +117,8 @@ public:
     static const DD::Image::Transform::Description d;
     const char* Class() const override { return d.name; }
     const char* node_help() const override { return kHelp; }
-  	int maximum_inputs() const override { return 2; }
-	int minimum_inputs() const override { return 2; }
+    int maximum_inputs() const override { return 2; }
+    int minimum_inputs() const override { return 2; }
 
     void append(DD::Image::Hash& hash) override
     {
@@ -141,34 +137,34 @@ public:
     void knobs(DD::Image::Knob_Callback f) override   
     {
         CustomKnob1(ToggleButtonKnob, f, &kInverseValue, "inverse");
-		SetFlags(f, DD::Image::Knob::ENDLINE);
+	SetFlags(f, DD::Image::Knob::ENDLINE);
 
         kReference = CustomKnob1(ToggleButtonKnob, f, &kReferenceValue, "reference");
         kReferenceFrame = Float_knob(f, &kReferenceFrameValue, "referenceFrame", "");
-		ClearFlags(f, DD::Image::Knob::SLIDER);
-		SetFlags(f, DD::Image::Knob::ENDLINE);
+	ClearFlags(f, DD::Image::Knob::SLIDER);
+	SetFlags(f, DD::Image::Knob::ENDLINE);
 
         kRetime = CustomKnob1(ToggleButtonKnob, f, &kRetimeValue, "retime");
-		kRetimeFrame = Float_knob(f, &kRetimeFrameValue, "retimeFrame", "");
-		ClearFlags(f, DD::Image::Knob::SLIDER);
-		SetFlags(f, DD::Image::Knob::ENDLINE);
+	kRetimeFrame = Float_knob(f, &kRetimeFrameValue, "retimeFrame", "");
+	ClearFlags(f, DD::Image::Knob::SLIDER);
+	SetFlags(f, DD::Image::Knob::ENDLINE);
 
         Button(f, "bake"); 
         SetFlags(f, DD::Image::Knob::STARTLINE);
 
-		Divider(f);
+	Divider(f);
 
     	Transform::knobs(f);
 
-		Divider(f);
+	Divider(f);
 
-		Enumeration_knob(f, &kResizeTypeValue, kResizeTypeList, "resize", "resize type");
+	Enumeration_knob(f, &kResizeTypeValue, kResizeTypeList, "resize", "resize type");
 
         Enumeration_knob(f, &kBBoxMode, kBBoxModeList, "boundingBox", "bounding box");
-		Int_knob(f, &kExpandBBox, "bboxexpand", "");
-		ClearFlags(f, DD::Image::Knob::SLIDER);
+	Int_knob(f, &kExpandBBox, "bboxexpand", "");
+	ClearFlags(f, DD::Image::Knob::SLIDER);
 
-		kFormat = Format_knob(f, &kOutputFormat, "format");
+	kFormat = Format_knob(f, &kOutputFormat, "format");
         
         // Button(f, "root"); 
         // Button(f, "input"); 
@@ -180,55 +176,38 @@ public:
         CustomKnob1(ToggleButtonKnob, f, &kFastValue, "fast mb");
 #endif
 
-		Divider(f);
+	Divider(f);
         Text_knob(f, kInfo);
     }
 
 	int knob_changed(DD::Image::Knob* k) override
     {
-		if(k == kReference)
-		{
+	if(k == kReference)
+	{
             if ((QGuiApplication::keyboardModifiers().testFlag(Qt::ControlModifier)))
             {
                 kReferenceFrame->clear_animated();
                 kReferenceFrame->set_value(outputContext().frame());
             }
+            return 1;
+	}
 
-			return 1;
-		}
-
-		if(k == kRetime)
-		{
+	if(k == kRetime)
+	{
             if ((QGuiApplication::keyboardModifiers().testFlag(Qt::ControlModifier)))
             {
                 kRetimeFrame->clear_animated();
                 kRetimeFrame->set_value(outputContext().frame());
             }
-			return 1;
-		}
+            return 1;
+	}
 
         if (k->name() == "bake") 
         {
             qt_bake_panel();
             return 1;
         }
-
-        // if (k->name() == "root") 
-        // {
-        //     std::cout<<"root\n";
-        //     return 1;
-        // }
-        // if (k->name() == "input") 
-        // {
-        //     std::cout<<"input\n";
-        //     return 1;
-        // }
-        // if (k->name() == "transform") 
-        // {
-        //     std::cout<<"transform\n";
-        //     return 1;
-        // }
-		return 0;
+	return 0;
     }
 
 	const char* input_label(int n, char*) const override
@@ -244,12 +223,12 @@ public:
 	bool test_input(int input, DD::Image::Op *op) const override
 	{
 		if (input==1)
-        {
-            return
-            (dynamic_cast<DD::Image::Transform*>(op) != nullptr) ||
-            (dynamic_cast<DD::Image::CameraOp*>(op)  != nullptr);
-        }
-        return DD::Image::Transform::test_input(input, op);
+	        {
+	            return
+	            (dynamic_cast<DD::Image::Transform*>(op) != nullptr) ||
+	            (dynamic_cast<DD::Image::CameraOp*>(op)  != nullptr);
+	        }
+        	return DD::Image::Transform::test_input(input, op);
 	}
 
     inline void clean_and_inverse_mat(DD::Image::Matrix4& mat)
@@ -274,8 +253,8 @@ public:
         if(kReferenceValue)
         {
             DD::Image::OutputContext ocReferenceTime;
-			ocReferenceTime = outputContext();
-			ocReferenceTime.setFrame(kReferenceFrameValue);
+            ocReferenceTime = outputContext();
+            ocReferenceTime.setFrame(kReferenceFrameValue);
 
             matReference.makeIdentity();
             get_homography(ocReferenceTime, matReference);
@@ -283,10 +262,9 @@ public:
         }
 
         matrixAt(outputContext(), matrix_);
-		DD::Image::Transform::_validate(for_real);
-
-		info_.full_size_format(*kOutputFormat.fullSizeFormat());
-		info_.format(*kOutputFormat.format());
+	DD::Image::Transform::_validate(for_real);
+	info_.full_size_format(*kOutputFormat.fullSizeFormat());
+	info_.format(*kOutputFormat.format());
     
         switch(kBBoxMode)
         {
@@ -321,11 +299,11 @@ public:
 
         DD::Image::Op* node = input(1);
 
-		while (dynamic_cast<TransformCopy*>(node))
-		{
+	while (dynamic_cast<TransformCopy*>(node))
+	{
             transformCopyOp = dynamic_cast<TransformCopy*>(node);
-			node = node->input(1);
-		}
+		node = node->input(1);
+	}
 
         if (node == nullptr) return;
 
