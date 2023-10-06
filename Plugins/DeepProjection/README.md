@@ -11,19 +11,14 @@ if it fails to find either it will produce a default camera.
 
 3 merge operation are provided to blend with the deep itself.
 
-<div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/DeepProjection/demo/deep_merge.gif"/>
-</div>
-
+<img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/DeepProjection/demo/deep_merge.gif"/>
 
 if the alpha of the texture is needed, you will need to shuffle it to a separate channel and shuffle back after the DeepProjection.
 Hopefully in the future it will be handled automatically.
 
 There are a few edge handling (reflection will be added in future version)
 
-<div id="header" align="left">
-  <img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/DeepProjection/demo/deep_edge.gif"/>
-</div>
+`<img src="https://github.com/EyalShirazi/Nuke/blob/main/Plugins/DeepProjection/demo/deep_edge.gif"/>
 
 Blur will handle any pre-filtering of the texture (future version will have an adaptive mode).
 
