@@ -1,0 +1,17 @@
+MYCXX ?= g++
+LINK ?= g++
+NDKDIR ?= 
+QTDIR ?= 
+CXXFLAGS ?= -g -c -DUSE_GLEW -I$(NDKDIR)/include -I$(QTDIR)/include -fPIC -msse -std=c++11 -O3
+LINKFLAGS ?= -L$(NDKDIR)
+LIBS ?= -lDDImage -lQt5Widgets -lQt5Core -lQt5Gui
+LINKFLAGS += -shared
+
+FILE = TransformCopy.so
+
+all: $(FILE)
+.PRECIOUS : %.os
+%.os: %.cpp
+$(MYCXX) $(CXXFLAGS) -o $(@) $<
+%.so: %.os
+$(LINK) $(LINKFLAGS) $(LIBS) -o $(@) $<
