@@ -29,14 +29,13 @@
 #define VERSION_MINOR 00
 
 #define HELP    "TransfromCopy will apply a transformation from one node to another image,\n" \
-                "with it's own filter and motion blur.\n" \
-                "It is possible to mix differnt formats (transformation/input/output resolution).\n" \
+                "It is possible to mix different formats (transformation/input/output resolution).\n" \
                 "\n" \
                 "inverse knob   : inverse the transformation (i.e. in case of stabilization).\n" \
                 "reference knob : setting the transformation to match a frame.\n" \
                 "retime knob    : retime the transformation (i.e. to match retime plates).\n" \
                 "\n" \
-                "Tip: hold ctrl + click on refernce/retime button will set frame number to current frame.\n";
+                "Tip: hold ctrl + click on reference/retime button will set frame number to current frame.\n";
 
 
 void printM33(DD::Image::Matrix4 mat, const char* name);
