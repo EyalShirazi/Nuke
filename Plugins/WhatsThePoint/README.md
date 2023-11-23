@@ -1,7 +1,6 @@
-WhatsThePoint is a Nuke's plugin to get locators and points from 2d and 3d/n
+WhatsThePoint is a Nuke's plugin to get locators and points from 2d and 3d
 
-This release has a Geometry module to get points from polygons.\n
-Works until version 12. 
+This release has a Geometry module to get points from polygons (for Nuke 12).
 
 One note... this is my oldest plugin I wrote for nuke, before this release I decided to rewrite it to make a bit cleaner and more efficient. 
 Because of that I assume I introduced some new bugs. Please feel free to let me know on any error one may find.
