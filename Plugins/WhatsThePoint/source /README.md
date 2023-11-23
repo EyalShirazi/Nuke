@@ -1,3 +1,4 @@
+The tool was tested on windows 7, nuke 12.2v11. qt moc file was generated using qt 5.6.1
 
 
 TODO ::
