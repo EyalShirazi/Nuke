@@ -4,6 +4,7 @@ This release has a Geometry module to get points from polygons (for Nuke 12).
 
 One note... this is my oldest plugin I wrote for nuke, before this release I decided to rewrite it to make a bit cleaner and more efficient. 
 Because of that I assume I introduced some new bugs. Please feel free to let me know on any error one may find.
+
 Also this plugin works on Nuke "old" 3d system, so up until version 12. Futute me will try to adapt to the new 3d system. 
 
 <a href="https://youtu.be/qZOdiVLFWh0">To watch the full tutotial</a>
